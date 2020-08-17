@@ -63,9 +63,6 @@ function barycentric_layout(g::AbstractGraph,
            map!(z -> scaler(z, min_x, max_x), work_x, work_x)
            map!(z -> scaler(z, min_y, max_y), work_y, work_y)
 
-           println(work_x)
-           println("Something")
-           println(work_y)
            return work_x, work_y
 end
 

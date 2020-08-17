@@ -52,20 +52,21 @@ function eades_layout(g::AbstractGraph,
                        force_vec_x += c4 * F_x
                        force_vec_y += c4 * F_x
                    end
-                   force_x[i] = force_vec_x
-                   force_y[i] = force_vec_y
+                   force_x[i] += force_vec_x
+                   force_y[i] += force_vec_y
                end
                # Cool down
-               temp = INITTEMP / iter
-               # Now apply them, but limit to temperature
-               for i = 1:nvg
-                   fx = force_x[i]
-                   fy = force_y[i]
-                   force_mag  = sqrt((fx * fx) + (fy * fy))
-                   scale      = min(force_mag, temp) / force_mag
-                   work_x[i] += force_x[i] * scale
-                   work_y[i] += force_y[i] * scale
-               end
+           end
+           iter = 1
+           temp = INITTEMP / iter
+           # Now apply them, but limit to temperature
+           for i = 1:nvg
+               fx = force_x[i]
+               fy = force_y[i]
+               force_mag  = sqrt((fx * fx) + (fy * fy))
+               scale      = min(force_mag, temp) / force_mag
+               work_x[i] += force_x[i] * scale
+               work_y[i] += force_y[i] * scale
            end
 
            # Scale to unit square
