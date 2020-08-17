@@ -6,9 +6,9 @@ using LinearAlgebra: eigen
 
 function eades_layout(g::AbstractGraph,
                        locs_x::Array{Float64,1},
-                       locs_y::Array{Float64,1};
+                       locs_y::Array{Float64,1},
+                       MAXITER=500;
                        C=2.0,
-                       MAXITER=500,
                        INITTEMP=2.0)
            nvg = nv(g)
            adj_matrix = adjacency_matrix(g)
