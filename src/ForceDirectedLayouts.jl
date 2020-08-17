@@ -1,5 +1,7 @@
 module ForceDirectedLayouts
 
+using LightGraphs
+
 export
     greet,
     eades_layout,
