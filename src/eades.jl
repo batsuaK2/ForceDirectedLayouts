@@ -42,9 +42,9 @@ function eades_layout(g::AbstractGraph,
                        dist²  = (d_x * d_x) + (d_y * d_y)
                        dist = sqrt(dist²)
 
-                       if ( iszero(adj_matrix[i,j]) && iszero(adj_matrix[j,i]) )
-                           F_x = -1 * c1 * log(abs(d_x) / c2)
-                           F_y = -1 * c1 * log(abs(d_y) / c2)
+                       if !( iszero(adj_matrix[i,j]) && iszero(adj_matrix[j,i]) )
+                           F_x = -1 * c1 * (abs(d_x) / c2
+                           F_y = -1 * c1 * (abs(d_y) / c2
                        else
                            F_x = c3 / (d_x * d_x)
                            F_y = c3 / (d_y * d_y)
