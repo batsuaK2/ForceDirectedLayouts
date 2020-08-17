@@ -13,6 +13,9 @@ function eades_layout(g::AbstractGraph,
            nvg = nv(g)
            adj_matrix = adjacency_matrix(g)
 
+           work_x = locs_x
+           work_y = locs_y
+
            # The optimal distance bewteen vertices
            k = C * sqrt(4.0 / nvg)
            k² = k * k
@@ -60,24 +63,24 @@ function eades_layout(g::AbstractGraph,
                    fy = force_y[i]
                    force_mag  = sqrt((fx * fx) + (fy * fy))
                    scale      = min(force_mag, temp) / force_mag
-                   locs_x[i] += force_x[i] * scale
-                   locs_y[i] += force_y[i] * scale
+                   work_x[i] += force_x[i] * scale
+                   work_y[i] += force_y[i] * scale
                end
            end
 
            # Scale to unit square
-           min_x, max_x = minimum(locs_x), maximum(locs_x)
-           min_y, max_y = minimum(locs_y), maximum(locs_y)
+           min_x, max_x = minimum(work_x), maximum(work_x)
+           min_y, max_y = minimum(work_y), maximum(work_y)
            function scaler(z, a, b)
                2.0*((z - a)/(b - a)) - 1.0
            end
-           map!(z -> scaler(z, min_x, max_x), locs_x, locs_x)
-           map!(z -> scaler(z, min_y, max_y), locs_y, locs_y)
+           map!(z -> scaler(z, min_x, max_x), work_x, work_x)
+           map!(z -> scaler(z, min_y, max_y), work_y, work_y)
 
-           println(force_x)
+           println(work_x)
            println("Something")
-           println(force_y)
-           return locs_x, locs_y
+           println(work_y)
+           return work_x, work_y
 end
 
 
