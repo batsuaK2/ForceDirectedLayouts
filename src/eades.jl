@@ -56,6 +56,10 @@ function eades_layout(g::AbstractGraph,
                    force_y[i] += force_vec_y
                end
                # Cool down
+               println("X")
+               println(force_x)
+               println("Y")
+               println(force_y)
            end
            iter = 1
            temp = INITTEMP / iter
@@ -78,9 +82,6 @@ function eades_layout(g::AbstractGraph,
            map!(z -> scaler(z, min_x, max_x), work_x, work_x)
            map!(z -> scaler(z, min_y, max_y), work_y, work_y)
 
-           println(force_x)
-           println("Something")
-           println(force_y)
            return work_x, work_y
 end
 
