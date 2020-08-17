@@ -50,7 +50,7 @@ function eades_layout(g::AbstractGraph,
                            F_y = c3 / (d_y * d_y)
                        end
                        force_vec_x += c4 * F_x
-                       force_vec_y += c4 * F_x
+                       force_vec_y += c4 * F_y
                    end
                    force_x[i] += force_vec_x
                    force_y[i] += force_vec_y
