@@ -5,12 +5,15 @@ using LightGraphs
 export
     greet,
     eades_layout,
-    barycentric_layout
+    barycentric_layout,
+    fmrg_layout
 
 greet() = print("Hello World!")
 
-include("eades.jl")
-include("barycentric.jl")
+include("Eades.jl")
+include("Barycentric.jl")
+include("FmRg.jl")
+
 
 
 end # module
