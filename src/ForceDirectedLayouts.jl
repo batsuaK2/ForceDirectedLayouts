@@ -16,7 +16,7 @@ include("Eades.jl")
 include("Barycentric.jl")
 include("FmRg.jl")
 include("Stress.jl")
-inlcude("KamKaw.jl")
+include("KamKaw.jl")
 
 greet() = print("Force Directed Layouts Package imported successfully")
 
