@@ -6,14 +6,19 @@ export
     greet,
     eades_layout,
     barycentric_layout,
-    fmrg_layout
+    fmrg_layout,
+    stress_layout,
+    kamkaw_layout
 
-greet() = print("Hello World!")
+
 
 include("Eades.jl")
 include("Barycentric.jl")
 include("FmRg.jl")
+include("Stress.jl")
+inlcude("KamKaw.jl")
 
+greet() = print("Force Directed Layouts Package imported successfully")
 
 
 end # module
