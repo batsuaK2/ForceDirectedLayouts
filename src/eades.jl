@@ -69,7 +69,7 @@ function eades_layout(g::AbstractGraph,
            min_x, max_x = minimum(work_x), maximum(work_x)
            min_y, max_y = minimum(work_y), maximum(work_y)
            function scaler(z, a, b)
-               2.0*((z - a)/(b - a)) - 1.0
+               3.0*((z - a)/(b - a)) - 1.0
            end
            map!(z -> scaler(z, min_x, max_x), work_x, work_x)
            map!(z -> scaler(z, min_y, max_y), work_y, work_y)
