@@ -39,8 +39,6 @@ function eades_layout(g::AbstractGraph,
                        i == j && continue
                        d_x = locs_x[j] - locs_x[i]
                        d_y = locs_y[j] - locs_y[i]
-                       dist²  = (d_x * d_x) + (d_y * d_y)
-                       dist = sqrt(dist²)
 
                        if !( iszero(adj_matrix[i,j]) && iszero(adj_matrix[j,i]) )
                            F_x = -1 * c1 * log(abs(d_x) / c2)
@@ -52,9 +50,13 @@ function eades_layout(g::AbstractGraph,
                        force_vec_x += F_x
                        force_vec_y += F_y
                    end
+                   println(force_vec_x)
+                   println(force_vec_y)
+                   println("node 1")
                    force_x[i] += c4 * force_vec_x
                    force_y[i] += c4 * force_vec_y
                end
+               println("___________________________________")
                # Cool down
            end
 
