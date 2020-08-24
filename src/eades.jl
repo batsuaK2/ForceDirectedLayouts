@@ -48,9 +48,12 @@ function eades_layout(g::AbstractGraph,
                        end
                        if (work_x[i] < work_x[j])
                            force_vec_x += F_x
-                           force_vec_y += F_y
                        else
                            force_vec_x -= F_x
+                       end
+                       if (work_y[i] < work_y[j])
+                           force_vec_y += F_y
+                       else
                            force_vec_y -= F_y
                        end
                    end
