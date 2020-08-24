@@ -24,8 +24,8 @@ function eades_layout(g::AbstractGraph,
            force_x = zeros(nvg)
            force_y = zeros(nvg)
 
-           c1 = 2
-           c2 = 1
+           c1 = 0.5
+           c2 = 2
            c3 = 1
            c4 = 0.1
 
