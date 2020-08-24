@@ -24,9 +24,9 @@ function eades_layout(g::AbstractGraph,
            force_x = zeros(nvg)
            force_y = zeros(nvg)
 
-           c1 = 0.5
+           c1 = 0.01
            c2 = 2
-           c3 = 1
+           c3 = 2
            c4 = 0.1
 
            # Iterate MAXITER times
@@ -49,15 +49,14 @@ function eades_layout(g::AbstractGraph,
                        force_vec_x += F_x
                        force_vec_y += F_y
                    end
-                   println(force_vec_x)
-                   println(force_vec_y)
+
                    println("node 1")
                    force_x[i] += c4 * force_vec_x
                    force_y[i] += c4 * force_vec_y
-                   work_x[i] += force_x[i]
-                   work_y[i] += force_y[i]
                end
                println("___________________________________")
+               work_x[i] += force_x[i]
+               work_y[i] += force_y[i]
                # Cool down
            end
 
