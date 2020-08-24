@@ -52,12 +52,15 @@ function eades_layout(g::AbstractGraph,
                    force_x[i] += c4 * force_vec_x
                    force_y[i] += c4 * force_vec_y
                end
+               for i = 1:nvg
+                   work_x[i] += force_x[i]
+                   work_y[i] += force_y[i]    
+               end
                println("___________________________________")
-               work_x[i] += force_x[i]
-               work_y[i] += force_y[i]
+
                println(work_x)
                println(work_y)
-              
+
                # Cool down
            end
 
