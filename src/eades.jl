@@ -24,8 +24,8 @@ function eades_layout(g::AbstractGraph,
            force_x = zeros(nvg)
            force_y = zeros(nvg)
 
-           c1 = 0.01
-           c2 = 2
+           c1 = 1
+           c2 = 100
            c3 = 2
            c4 = 0.1
 
@@ -40,11 +40,11 @@ function eades_layout(g::AbstractGraph,
                        d_x = work_x[j] - work_x[i]
                        d_y = work_y[j] - work_y[i]
                        if !( iszero(adj_matrix[i,j]) && iszero(adj_matrix[j,i]) )
-                           F_x = -1 * c1 * log(abs(d_x) / c2)
-                           F_y = -1 * c1 * log(abs(d_y) / c2)
+                           F_x = -1 * abs(c1 * log(abs(d_x) / c2))
+                           F_y = -1 * abs(c1 * log(abs(d_y) / c2))
                        else
-                           F_x = c3 / (d_x * d_x)
-                           F_y = c3 / (d_y * d_y)
+                           F_x = abs(c3 / log(abs(d_x * d_x)))
+                           F_y = abs(c3 / log(abs(d_y * d_y)))
                        end
                        force_vec_x += F_x
                        force_vec_y += F_y
@@ -54,7 +54,7 @@ function eades_layout(g::AbstractGraph,
                end
                for i = 1:nvg
                    work_x[i] += force_x[i]
-                   work_y[i] += force_y[i]    
+                   work_y[i] += force_y[i]
                end
                println("___________________________________")
 
@@ -64,9 +64,6 @@ function eades_layout(g::AbstractGraph,
                # Cool down
            end
 
-           for i = 1:nvg
-
-           end
 
            # Scale to unit square
            min_x, max_x = minimum(work_x), maximum(work_x)
