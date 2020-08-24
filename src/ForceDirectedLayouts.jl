@@ -18,7 +18,7 @@ include("FmRg.jl")
 include("Stress.jl")
 include("KamKaw.jl")
 
-greet() = print("Force Directed Layouts Package imported successfully")
+greet() = print("Force Directed Layouts Package imported successfully!")
 
 
 end # module
