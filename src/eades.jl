@@ -27,7 +27,7 @@ function eades_layout(g::AbstractGraph,
            c1 = 1
            c2 = 100
            c3 = 1
-           c4 = 0.1
+           c4 = 0.01
 
            # Iterate MAXITER times
            @inbounds for iter = 1:MAXITER
