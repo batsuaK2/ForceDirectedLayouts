@@ -42,12 +42,12 @@ function eades_layout(g::AbstractGraph,
                        if !( iszero(adj_matrix[i,j]) && iszero(adj_matrix[j,i]) )
                            # F_x = abs(c1 * log(abs(d_x) / c2))
                            # F_y = abs(c1 * log(abs(d_y) / c2))
-                           F_x = abs( c1 * d_x)
-                           F_y = abs( c1 * d_y)
+                           F_x = abs( c1 * log(d_x))
+                           F_y = abs( c1 * log(d_y))
 
                        else
-                           F_x = c3 / (d_x * d_x)
-                           F_y = c3 / (d_y * d_y)
+                           F_x = c3 / log(d_x) * log(d_x)
+                           F_y = c3 / log(d_y) * log(d_y)
 
                            # F_x = abs(c3 / log(abs(d_x * d_x)))
                            # F_y = abs(c3 / log(abs(d_y * d_y)))
