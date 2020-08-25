@@ -10,17 +10,13 @@ function eades_layout(g::AbstractGraph,
                        MAXITER=500;
                        C=2.0,
                        INITTEMP=2.0)
+
            nvg = nv(g)
            adj_matrix = adjacency_matrix(g)
 
            work_x = locs_x
            work_y = locs_y
 
-           # The optimal distance bewteen vertices
-           k = C * sqrt(4.0 / nvg)
-           k² = k * k
-
-           # Store forces and apply at end of iteration all at once
            force_x = zeros(nvg)
            force_y = zeros(nvg)
 
@@ -87,9 +83,9 @@ function eades_layout(g::AbstractGraph,
 end
 
 
-using Random: MersenneTwister
-
-function eades_layout(g::AbstractGraph, seed::Integer, kws...)
-    rng = MersenneTwister(seed)
-    eades_layout(g, 2 .* rand(rng, nv(g)) .- 1.0, 2 .* rand(rng,nv(g)) .- 1.0; kws...)
-end
+# using Random: MersenneTwister
+#
+# function eades_layout(g::AbstractGraph, seed::Integer, kws...)
+#     rng = MersenneTwister(seed)
+#     eades_layout(g, 2 .* rand(rng, nv(g)) .- 1.0, 2 .* rand(rng,nv(g)) .- 1.0; kws...)
+# end
