@@ -6,9 +6,7 @@ using LinearAlgebra: eigen
 
 function barycentric_layout(g::AbstractGraph,
                        locs_x::Array{Float64,1},
-                       locs_y::Array{Float64,1};
-                       C=2.0,
-                       INITTEMP=2.0)
+                       locs_y::Array{Float64,1};)
            nvg = nv(g)
            adj_matrix = adjacency_matrix(g)
            work_x = locs_x
