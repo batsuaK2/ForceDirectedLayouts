@@ -1,3 +1,3 @@
 function stress_layout(args)
-    body
+    # Implementation of stress majorize goes here
 end
